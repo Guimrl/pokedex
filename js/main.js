@@ -18,6 +18,7 @@ const cores = {
 }
 
 const tipos = Object.keys(cores);
+
 const fetchPokemons = async () => {
     for(let i = 1; i <= numeroDePokemons; i++) {
         await getPokemon(i);
@@ -35,29 +36,28 @@ const criaCardPokemon = (pokemon) => {
     const pokemonEl = document.createElement('div');
     pokemonEl.classList.add('pokemon');
 
-    const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+    const nome = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
     const id = pokemon.id.toString().padStart(3, '0');
 
     const poke_tipos = pokemon.types.map(tipo => tipo.type.name);
-    // console.log(tipo)
     const tipo = tipos.find(tipo => poke_tipos.indexOf(tipo) > -1);
-    console.log(tipo)
     const cor = cores[tipo];
 
     pokemonEl.style.backgroundColor = cor;
 
     const pokemonInnerHTML = `
     <div class="img-container">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${name} />
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png"" alt="${nome}">
     </div>
     <div class="info">
         <span class="numero">#${id}</span>
-        <h3 class="nome">${name}</h3>
-        <small class="tipo">Tipo: <span>${tipo}</span></small>
+        <h3 class="nome">${nome}</h3>
+        <small class="tipo"><span>${tipo}</span> </small>
     </div>
     `
 
     pokemonEl.innerHTML = pokemonInnerHTML;
+
     container.appendChild(pokemonEl);
 }
 
