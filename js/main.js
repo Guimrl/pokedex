@@ -51,8 +51,6 @@ const criaCardPokemon = (pokemon) => {
 
     pokemonEl.style.backgroundColor = cor;
 
-
-
     const pokemonInnerHTML = `
     <div class="img-container">
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png"" alt="${nome}">
