@@ -30,4 +30,32 @@ const getPokemon = async(id) => {
     criaCardPokemon(data);
 }
 
-console.log(fetchPokemons());
+const criaCardPokemon = (pokemon) => {
+    const pokemonEl = document.createElement('div');
+    pokemonEl.classList.add('pokemon');
+
+    const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+    const id = pokemon.id.toString().padStart(3, '0');
+
+    const poke_tipos = pokemon.types.map(tipo => tipo.type.name);
+    const tipo = tipos.find(tipo => poke_tipos.indexOf(tipo) > -1);
+    const cor = cores[tipo];
+
+    pokemonEl.style.backgroundColor = cor;
+
+    const pokemonInnerHTML = `
+    <div class="img-container">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${name} />
+    </div>
+    <div class="info">
+        <span class="numero">#${id}</span>
+        <h3 class="nome">${name}</h3>
+        <small class="tipo">Tipo: <span>${tipo}</span></small>
+    </div>
+    `
+
+    pokemonEl.innerHTML = pokemonInnerHTML;
+    container.appendChild(pokemonEl);
+}
+
+fetchPokemons();
