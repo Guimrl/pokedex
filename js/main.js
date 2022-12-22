@@ -1,18 +1,19 @@
 const container = document.getElementById('container');
 const numeroDePokemons = 150;
 const cores = {
-    fogo: '#A81E02',
-    grama: '#85C125',
-    eletrico: '#FEFF01',
-    agua: '#2D3192',
-    terra: '#BD4612',
-    fada: '#FF669C',
-    veneno: '#741F7C',
-    inseto: '#FB151F',
-    dragao: '#FC6D21',
-    psiquico: '#044318',
-    voador: '#79DAFD',
-    lutador: '#C6AC01',
+    fire: '#A81E02',
+    grass: '#85C125',
+    electric: '#FEFF01',
+    water: '#2D3192',
+    ground: '#BD4612',
+    fairy: '#FF669C',
+    rock: '#5D6162',
+    poison: '#741F7C',
+    bug: '#FB151F',
+    dragon: '#FC6D21',
+    psychic: '#044318',
+    flying: '#79DAFD',
+    fighting: '#C6AC01',
     normal: '#563317'
 }
 
@@ -38,7 +39,9 @@ const criaCardPokemon = (pokemon) => {
     const id = pokemon.id.toString().padStart(3, '0');
 
     const poke_tipos = pokemon.types.map(tipo => tipo.type.name);
+    // console.log(tipo)
     const tipo = tipos.find(tipo => poke_tipos.indexOf(tipo) > -1);
+    console.log(tipo)
     const cor = cores[tipo];
 
     pokemonEl.style.backgroundColor = cor;
