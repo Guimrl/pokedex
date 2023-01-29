@@ -1,5 +1,5 @@
 const container = document.getElementById('container');
-const numeroDePokemons = 1154;
+const numeroDePokemons = 150;
 const cores = {
     fire: '#EE8130',
     grass: '#7AC74C',
@@ -46,39 +46,22 @@ const criaCardPokemon = (pokemon) => {
     //puxa todos os tipo de pokemon
     const poke_tipos = pokemon.types.map(tipo => tipo.type.name);
     const tipo = tipos.find(tipo => poke_tipos.indexOf(tipo) > -1);
-    const tipo2 = tipos.find(tipo => poke_tipos.indexOf(tipo) > 0);
     const cor = cores[tipo];
 
     pokemonEl.style.backgroundColor = cor;
 
     const pokemonInnerHTML = `
     <div class="img-container">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png"" alt="${nome}">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="${nome}">
     </div>
     <div class="info">
         <span class="numero">#${id}</span>
         <h3 class="nome">${nome}</h3>
         <small class="tipo"><span>${poke_tipos[0]}</span></small>
-        <small class="tipo2"><span>${poke_tipos[1]}</span></small>
+        <small class="tipo" id="tipo2"><span>${poke_tipos[1] !== undefined ? poke_tipos[1] : ''}</span></small>
     </div>
     `
-    // const classTipo2 = document.querySelector("small.tipo2")
-    // console.log(classTipo2)
-    // if(tipo2 == undefined) {
-    //     return classTipo2.style.display = 'none';
-    // }
-    // if (pokemon.types[1] === undefined) {
-    //     classTipo2.style.display = 'none';
-    // }        
-    // if(poke_tipos[1] === undefined) {
-    //     document.querySelector('small.tipo2').style.display = 'none'
-    // }
-    // console.log(pokemon.id = 1)
-
-
-
     pokemonEl.innerHTML = pokemonInnerHTML;
-
     container.appendChild(pokemonEl);
 }
 
