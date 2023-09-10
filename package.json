@@ -1,6 +1,5 @@
 {
   "name": "test",
-  "private": true,
   "homepage": "https://guimrl.github.io/test/",
   "version": "0.0.0",
   "type": "module",
