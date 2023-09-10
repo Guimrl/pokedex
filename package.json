@@ -1,7 +1,7 @@
 {
-  "name": "test",
-  "homepage": "https://guimrl.github.io/test/",
-  "version": "0.0.0",
+  "name": "pokedex",
+  "homepage": "https://guimrl.github.io/pokedex/",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
